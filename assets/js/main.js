@@ -1,53 +1,20 @@
-$(function() {
-    
+$(function () {
+
     "use strict";
-    
+
     //===== Prealoder
-    
-    $(window).on('load', function(event) {
+
+    $(window).on('load', function (event) {
         $('.preloader').delay(500).fadeOut(500);
     });
-    
-    
-    //===== Sticky
 
-    // $(window).on('scroll', function (event) {
-    //     var scroll = $(window).scrollTop();
-    //     if (scroll < 20) {
-    //         $(".navbar-area").removeClass("sticky");
-    //         $(".navbar-area img").attr("src", "assets/images/logo.svg");
-    //     } else {
-    //         $(".navbar-area").addClass("sticky");
-    //         $(".navbar-area img").attr("src", "assets/images/logo-2.svg");
-    //     }
-    // });
+    // set image path
+    $('.image-popup').on('click', function (e) {
+        const imageUrl = this.dataset.src;
+        console.log($(".modal-dialog").find('img'));
+        $(".modal-dialog").find('img').attr('src', imageUrl);
+    })
 
-    
-    //===== close navbar-collapse when a  clicked
-
-    // $(".navbar-nav a").on('click', function () {
-    //     $(".navbar-collapse").removeClass("show");
-    // });
-
-    // $(".navbar-toggler").on('click', function () {
-    //     $(this).toggleClass("active");
-    // });
-
-    // $(".navbar-nav a").on('click', function () {
-    //     $(".navbar-toggler").removeClass('active');
-    // });
-    
-    
-    // //===== Sidebar
-
-    // $('[href="#side-menu-left"], .overlay-left').on('click', function (event) {
-    //     $('.sidebar-left, .overlay-left').addClass('open');
-    // });
-
-    // $('[href="#close"], .overlay-left').on('click', function (event) {
-    //     $('.sidebar-left, .overlay-left').removeClass('open');
-    // });
-    
     //===== Isotope Project 4
 
     $('.container').imagesLoaded(function () {
@@ -71,23 +38,24 @@ $(function() {
             event.preventDefault();
         });
     });
-    
+
     //===== Back to top
-    
+
     // Show or hide the sticky footer button
-    $(window).on('scroll', function(event) {
-        if($(this).scrollTop() > 600){
+    $(window).on('scroll', function (event) {
+        if ($(this).scrollTop() > 600) {
             $('.back-to-top').fadeIn(200)
-        } else{
+        } else {
             $('.back-to-top').fadeOut(200)
         }
     });
-    
-    
+
+
+
     //Animate the scroll to yop
-    $('.back-to-top').on('click', function(event) {
+    $('.back-to-top').on('click', function (event) {
         event.preventDefault();
-        
+
         $('html, body').animate({
             scrollTop: 0,
         }, 1500);
